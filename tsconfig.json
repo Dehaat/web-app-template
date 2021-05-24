@@ -1,0 +1,35 @@
+/*
+  To check for more tsconfig options
+  https://www.typescriptlang.org/tsconfig
+*/
+
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "outDir": "build",
+    "baseUrl": "src",
+    "paths": {
+      "routes/*": ["app/routes/*"],
+      "config/*": ["app/config/*"],
+      "components/*": ["app/components/*"],
+      "utils/*": ["utils/*"],
+      "store/*": ["store/*"],
+      "app/*": ["app/*"],
+    },
+    "lib": ["ES6", "dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "target": "es5",
+    "allowJs": true,
+    "checkJs": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": [".eslintrc.js", "jest.mock.js", "jest.config.js", "src/**/*"],
+}
