@@ -1,0 +1,21 @@
+name: Lint and test pipeline
+
+on:
+  pull_request:
+    branches:
+      - "**"
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create env file
+        run: touch env/.env && echo NODE_ENV=${{ secrets.NODE_ENV }} >> env/.env
+      - name: Run lint
+        run: npm run lint
+      - name: Run tests
+        run: npm run test
