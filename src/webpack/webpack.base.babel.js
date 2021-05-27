@@ -3,12 +3,8 @@
  */
 
 const path = require('path')
-const webpack = require('webpack')
-const dotenv = require('dotenv')
+const Dotenv = require('dotenv-webpack')
 const ESLintPlugin = require('eslint-webpack-plugin')
-
-const getEnvKeys = () =>
-  dotenv.config({ path: path.join(__dirname, 'env/.env') })
 
 module.exports = options => ({
   mode: options.mode,
@@ -106,7 +102,9 @@ module.exports = options => ({
     ],
   },
   plugins: options.plugins.concat([
-    new webpack.DefinePlugin(getEnvKeys()),
+    new Dotenv({
+      path: path.join(process.cwd(), '/env/.env'),
+    }),
     new ESLintPlugin({
       extensions: ['js', 'jsx', 'ts', 'tsx'],
       exclude: ['node_modules', 'build'],
