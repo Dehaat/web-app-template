@@ -12,12 +12,17 @@
     "build:clean": "rimraf ./build",
     "test": "NODE_ENV=test jest",
     "test:coverage": "jest --coverage",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "lint": "npm run lint:js",
     "lint:js": "eslint --ext .jsx,.js,.ts,.tsx src/**/*",
     "lint:fix": "eslint --fix src/**/*",
     "prettify": "prettier --write .",
     "analyze": "webpack --config src/webpack/webpack.prod.babel.js --profile > stats",
-    "analyze:clean": "rimraf stats"
+    "analyze:clean": "rimraf stats",
+    "prestorybook": "npm run test:generate-output",
+    "storybook": "start-storybook -p 6006",
+
+    "build:storybook": "build-storybook"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -58,6 +63,13 @@
     "@babel/preset-typescript": "^7.13.0",
     "@babel/register": "^7.13.16",
     "@emotion/eslint-plugin": "^11.2.0",
+    "@storybook/addon-a11y": "^6.4.12",
+    "@storybook/addon-actions": "^6.4.12",
+    "@storybook/addon-essentials": "^6.4.12",
+    "@storybook/addon-jest": "^6.4.12",
+    "@storybook/addon-links": "^6.4.12",
+    "@storybook/react": "^6.4.12",
+    "@storybook/testing-react": "^1.2.3",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@types/history": "^4.7.8",
