@@ -1,0 +1,19 @@
+name: 'CoverAlls analysis'
+
+on: ['push', 'pull_request']
+
+jobs:
+  coveralls_analysis:
+    name: CoverAlls analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: npm install
+        run: npm ci
+      - name: Run test coverage
+        run: npm run test:coverage
+      - name: Push to CoverAlls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
