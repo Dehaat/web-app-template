@@ -39,7 +39,7 @@
     "chalk": "^4.1.1",
     "compression": "1.7.4",
     "history": "^5.0.0",
-    "immer": "^9.0.2",
+    "immer": "^9.0.6",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-app-polyfill": "^2.0.0",
