@@ -19,9 +19,10 @@
     "prettify": "prettier --write .",
     "analyze": "webpack --config src/webpack/webpack.prod.babel.js --profile > stats",
     "analyze:clean": "rimraf stats",
-    "prestorybook": "npm run test:generate-output",
+    "storybook:static-files": "mkdir static-files && ln -s ../public static-files/public",
+    "prestorybook": "npm run storybook:static-files && npm run test:generate-output",
     "storybook": "start-storybook -p 6006",
-
+    "prebuild:storybook": "npm run storybook:static-files && npm run test:generate-output",
     "build:storybook": "build-storybook"
   },
   "lint-staged": {
