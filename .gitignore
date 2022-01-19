@@ -10,3 +10,7 @@ npm-debug.log
 
 #env
 .env
+
+# storybook
+storybook-static
+static-files

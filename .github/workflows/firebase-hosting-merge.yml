@@ -1,0 +1,20 @@
+name: Deploy production storybook
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies and build storybook
+        run: 'npm ci && npm run build:storybook'
+      - name: Deploy
+        uses: FirebaseExtended/action-hosting-deploy@ff6e7dde58a4f7f1db590927596bf683250c6cc8
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEB_APP_TEMPLATE_1BD48 }}'
+          channelId: live
+          projectId: web-app-template-1bd48
