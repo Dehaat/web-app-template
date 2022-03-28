@@ -1,0 +1,16 @@
+name: Delete Preview channel
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  delete_storybook_preview_channel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: w9jds/firebase-action@master
+        with:
+          args: hosting:channel:delete --force staging-${{ github.event.number }}
+        env:
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEB_APP_TEMPLATE_1BD48 }}
