@@ -14,4 +14,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEB_APP_TEMPLATE_1BD48 }}'
           projectId: web-app-template-1bd48
+          channelId: 'staging-${{github.event.pull_request.number}}'
           expires: 7d
